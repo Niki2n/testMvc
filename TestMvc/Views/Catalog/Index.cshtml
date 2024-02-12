@@ -1,0 +1,35 @@
+﻿@model List<CatalogModel>
+@await Html.PartialAsync("_DeletionConfirmationPartial")
+<form asp-controller="Catalog" asp-action="Index">
+    <p>
+        Title: <input type="text" name="search" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<table class ="table">
+    <thead>
+        <tr>
+            <th>Names</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var catalog in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(@catalog.Name, "Details", new { id = catalog.Id })
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = catalog.Id })
+                    @Html.ActionLink("Del", "Delete", new { id = catalog.Id }, new { @class = "delete-link" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Create", "Create")
+
+
+
+

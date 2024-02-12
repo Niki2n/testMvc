@@ -1,0 +1,15 @@
+﻿@model ElementModel
+
+<div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+    <div class="col p-4 d-flex flex-column position-static">
+        <h3 class="mb-0">@Model.Name</h3>
+        <div class="mb-1 text-muted">@Model.Data</div>
+        <p class="card-text mb-auto">@Model.Url</p>
+        <p class="card-text mb-auto">@Html.ActionLink("Edit", "Edit", "Element", new { id = Model.Id })</p>
+
+        <div class="card-text mb-auto">
+            <p class="card-text">@Html.ActionLink("Back", "Index", "Catalog")</p>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,34 @@
+﻿@model CatalogModel
+@await Html.PartialAsync("_DeletionConfirmationPartial")
+<div>
+    <div>
+        <h1>Каталог: @Model.Name</h1>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var element in Model.Elements)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(element.Name, "Index", "Element", new { id = element.Id })
+                    </td>
+                    <td>                        
+                        @Html.ActionLink("Delete", "Delete", "Element", new { id = element.Id, catalogId = Model.Id}, new { @class = "delete-link" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
